@@ -1,0 +1,29 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "lazycaptcha/widget",
+    "version": "0.1.0",
+    "title": "LazyCaptcha",
+    "category": "widgets",
+    "icon": "shield-alt",
+    "description": "Insert a LazyCaptcha challenge into any form.",
+    "keywords": ["captcha", "bot", "security", "form"],
+    "textdomain": "lazycaptcha",
+    "supports": {
+        "html": false,
+        "customClassName": false,
+        "reusable": true
+    },
+    "attributes": {
+        "type": {
+            "type": "string",
+            "default": ""
+        },
+        "theme": {
+            "type": "string",
+            "default": ""
+        }
+    },
+    "editorScript": "file:./index.js",
+    "render": "file:./render.php"
+}
