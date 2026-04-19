@@ -36,6 +36,8 @@
                                 { label: __('Proof of Work', 'lazycaptcha'), value: 'pow' },
                                 { label: __('Behavioral', 'lazycaptcha'), value: 'behavioral' },
                                 { label: __('Text / Math', 'lazycaptcha'), value: 'text_math' },
+                                { label: __('Press and Hold', 'lazycaptcha'), value: 'press_hold' },
+                                { label: __('Rotate to Align', 'lazycaptcha'), value: 'rotate_align' },
                             ],
                             onChange: (value) => setAttributes({ type: value }),
                         }),

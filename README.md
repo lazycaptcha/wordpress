@@ -9,7 +9,7 @@ Self-hostable, privacy-friendly CAPTCHA plugin for WordPress. Drop-in alternativ
 - Protects **login, registration, lost password, comments, WooCommerce register + checkout**
 - `[lazycaptcha]` shortcode — drop the widget anywhere
 - **Gutenberg block** with type/theme controls in the inspector
-- Four challenge types: image puzzles, proof-of-work, behavioral, text/math
+- Six challenge types: image puzzles, proof-of-work, behavioral, text/math, press-and-hold, rotate-to-align
 - Server-to-server verification using `wp_remote_post`
 - Skip-for-logged-in-users toggle
 - Configurable for self-hosted LazyCaptcha instances
@@ -44,7 +44,7 @@ Then activate through WordPress admin.
 | Site Key | — | Public UUID from your LazyCaptcha dashboard |
 | Secret Key | — | Private key for server-side verification |
 | LazyCaptcha URL | `https://lazycaptcha.com` | Your instance URL |
-| Challenge type | `auto` | Image / PoW / behavioral / text-math |
+| Challenge type | `auto` | Image / PoW / behavioral / text-math / press-hold / rotate-align |
 | Theme | `light` | Widget appearance |
 | Protect login | Off | |
 | Protect registration | On | |

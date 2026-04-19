@@ -105,6 +105,8 @@ class LazyCaptcha_Admin
                                 <option value="pow" <?php selected($current_type, 'pow'); ?>><?php esc_html_e('Proof of Work (invisible)', 'lazycaptcha'); ?></option>
                                 <option value="behavioral" <?php selected($current_type, 'behavioral'); ?>><?php esc_html_e('Behavioral (invisible)', 'lazycaptcha'); ?></option>
                                 <option value="text_math" <?php selected($current_type, 'text_math'); ?>><?php esc_html_e('Text / Math', 'lazycaptcha'); ?></option>
+                                <option value="press_hold" <?php selected($current_type, 'press_hold'); ?>><?php esc_html_e('Press and Hold', 'lazycaptcha'); ?></option>
+                                <option value="rotate_align" <?php selected($current_type, 'rotate_align'); ?>><?php esc_html_e('Rotate to Align (high-friction)', 'lazycaptcha'); ?></option>
                             </select>
                         </td>
                     </tr>
