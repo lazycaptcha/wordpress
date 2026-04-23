@@ -41,7 +41,7 @@ register_activation_hook(__FILE__, function () {
         'secret_key'         => '',
         'base_url'           => 'https://lazycaptcha.com',
         'type'               => 'auto',
-        'theme'              => 'light',
+        'theme'              => 'auto',
         'protect_login'      => '0',
         'protect_register'   => '1',
         'protect_lostpw'     => '1',

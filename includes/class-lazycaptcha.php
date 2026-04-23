@@ -66,7 +66,7 @@ class LazyCaptcha
         }
 
         $type  = esc_attr($atts['type']  ?? get_option('lazycaptcha_type', 'auto'));
-        $theme = esc_attr($atts['theme'] ?? get_option('lazycaptcha_theme', 'light'));
+        $theme = esc_attr($atts['theme'] ?? get_option('lazycaptcha_theme', 'auto'));
 
         return sprintf(
             '<div class="lazycaptcha" data-sitekey="%s" data-type="%s" data-theme="%s"></div>',
