@@ -65,14 +65,21 @@ class LazyCaptcha
             return '';
         }
 
-        $type  = esc_attr($atts['type']  ?? get_option('lazycaptcha_type', 'auto'));
+        $type = esc_attr($atts['type'] ?? get_option('lazycaptcha_type', 'auto'));
         $theme = esc_attr($atts['theme'] ?? get_option('lazycaptcha_theme', 'auto'));
+        $widget = esc_attr($atts['widget'] ?? get_option('lazycaptcha_widget', 'standard'));
+        $width = isset($atts['width']) && $atts['width'] !== ''
+            ? esc_attr($atts['width'])
+            : esc_attr(get_option('lazycaptcha_width', ''));
+        $width_attr = $width !== '' ? sprintf(' data-width="%s"', $width) : '';
 
         return sprintf(
-            '<div class="lazycaptcha" data-sitekey="%s" data-type="%s" data-theme="%s"></div>',
+            '<div class="lazycaptcha" data-sitekey="%s" data-type="%s" data-theme="%s" data-widget="%s"%s></div>',
             esc_attr($site_key),
             $type,
-            $theme
+            $theme,
+            $widget,
+            $width_attr
         );
     }
 
@@ -81,6 +88,8 @@ class LazyCaptcha
         $atts = shortcode_atts([
             'type'  => '',
             'theme' => '',
+            'widget' => '',
+            'width' => '',
         ], $atts, 'lazycaptcha');
         return $this->render_widget(array_filter($atts));
     }

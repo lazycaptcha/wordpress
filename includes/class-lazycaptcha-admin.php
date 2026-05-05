@@ -39,7 +39,7 @@ class LazyCaptcha_Admin
     public function register_settings(): void
     {
         $fields = [
-            'site_key', 'secret_key', 'base_url', 'type', 'theme',
+            'site_key', 'secret_key', 'base_url', 'type', 'theme', 'widget', 'width',
             'protect_login', 'protect_register', 'protect_lostpw',
             'protect_comments', 'protect_woo', 'skip_logged_in',
         ];
@@ -114,10 +114,31 @@ class LazyCaptcha_Admin
                         <th scope="row"><label for="lazycaptcha_theme"><?php esc_html_e('Theme', 'lazycaptcha'); ?></label></th>
                         <td>
                             <select id="lazycaptcha_theme" name="lazycaptcha_theme">
-                                <?php $current_theme = get_option('lazycaptcha_theme', 'light'); ?>
+                                <?php $current_theme = get_option('lazycaptcha_theme', 'auto'); ?>
                                 <option value="light" <?php selected($current_theme, 'light'); ?>><?php esc_html_e('Light', 'lazycaptcha'); ?></option>
                                 <option value="dark" <?php selected($current_theme, 'dark'); ?>><?php esc_html_e('Dark', 'lazycaptcha'); ?></option>
+                                <option value="auto" <?php selected($current_theme, 'auto'); ?>><?php esc_html_e('Auto', 'lazycaptcha'); ?></option>
                             </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row"><label for="lazycaptcha_widget"><?php esc_html_e('Widget preset', 'lazycaptcha'); ?></label></th>
+                        <td>
+                            <select id="lazycaptcha_widget" name="lazycaptcha_widget">
+                                <?php $current_widget = get_option('lazycaptcha_widget', 'standard'); ?>
+                                <option value="standard" <?php selected($current_widget, 'standard'); ?>><?php esc_html_e('Standard', 'lazycaptcha'); ?></option>
+                                <option value="compact" <?php selected($current_widget, 'compact'); ?>><?php esc_html_e('Compact', 'lazycaptcha'); ?></option>
+                                <option value="newsletter" <?php selected($current_widget, 'newsletter'); ?>><?php esc_html_e('Newsletter', 'lazycaptcha'); ?></option>
+                                <option value="login" <?php selected($current_widget, 'login'); ?>><?php esc_html_e('Login', 'lazycaptcha'); ?></option>
+                            </select>
+                            <p class="description"><?php esc_html_e('Newsletter stays intentionally skinny. Login keeps the sequence UI minimal.', 'lazycaptcha'); ?></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row"><label for="lazycaptcha_width"><?php esc_html_e('Width override', 'lazycaptcha'); ?></label></th>
+                        <td>
+                            <input type="text" id="lazycaptcha_width" name="lazycaptcha_width" value="<?php echo esc_attr(get_option('lazycaptcha_width', '')); ?>" class="regular-text" placeholder="420px" />
+                            <p class="description"><?php esc_html_e('Optional CSS width value. The hosted widget caps widths at 500px.', 'lazycaptcha'); ?></p>
                         </td>
                     </tr>
                 </table>
@@ -153,6 +174,8 @@ class LazyCaptcha_Admin
             <h2 class="title"><?php esc_html_e('Usage', 'lazycaptcha'); ?></h2>
             <p><?php esc_html_e('Insert the widget anywhere with the shortcode:', 'lazycaptcha'); ?></p>
             <p><code>[lazycaptcha]</code></p>
+            <p><code>[lazycaptcha widget="newsletter"]</code></p>
+            <p><code>[lazycaptcha widget="standard" width="420px"]</code></p>
             <p><?php esc_html_e('Or in Gutenberg, add the "LazyCaptcha" block.', 'lazycaptcha'); ?></p>
         </div>
         <?php

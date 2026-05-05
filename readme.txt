@@ -4,7 +4,7 @@ Tags: captcha, anti-spam, bot protection, hcaptcha, recaptcha
 Requires at least: 5.8
 Tested up to: 6.5
 Requires PHP: 7.4
-Stable tag: 0.1.0
+Stable tag: 2.0.0
 License: MIT
 License URI: https://opensource.org/licenses/MIT
 
@@ -12,12 +12,14 @@ Self-hostable, privacy-friendly CAPTCHA for WordPress. Drop-in alternative to hC
 
 == Description ==
 
-LazyCaptcha is a CAPTCHA plugin for WordPress that you can self-host, keeping your visitors' data under your control. It protects your forms with four challenge types:
+LazyCaptcha is a CAPTCHA plugin for WordPress that you can self-host, keeping your visitors' data under your control. It protects your forms with six challenge types:
 
-* **Image puzzles** — grid selection, slide-to-fit, rotate-to-align
+* **Image puzzles** — grid selection, drag-to-fit, rotate-to-align
 * **Proof of Work** — invisible SHA-256 puzzle solved in a Web Worker
 * **Behavioral** — silent scoring from mouse movement and timing
 * **Text / Math** — distorted text or arithmetic
+* **Press and Hold** — hold-to-confirm interaction
+* **Rotate to Align** — multi-round orientation challenge
 
 **What it protects out of the box:**
 * Login form
@@ -28,8 +30,8 @@ LazyCaptcha is a CAPTCHA plugin for WordPress that you can self-host, keeping yo
 
 **Also includes:**
 * `[lazycaptcha]` shortcode — drop the widget anywhere
-* Gutenberg block with inspector controls
-* Admin settings page with all four challenge types
+* Gutenberg block with type, theme, widget preset, and width controls
+* Admin settings page with all six challenge types
 * Skip-for-logged-in-users toggle
 * Support for self-hosted LazyCaptcha instances
 
@@ -50,11 +52,19 @@ Yes. The entire LazyCaptcha service is open source (MIT). This plugin points at 
 
 Contact Form 7, Gravity Forms, and WPForms have their own captcha integration APIs. For now this plugin covers core WP forms + WooCommerce. Third-party bridges are on the roadmap — or you can use the `[lazycaptcha]` shortcode inside those form builders' HTML fields.
 
+= Can I use the compact newsletter style or set a custom width? =
+
+Yes. Use `[lazycaptcha widget="newsletter"]` for the intentionally skinny newsletter preset, or set `[lazycaptcha width="420px"]` for wider layouts. The hosted widget caps widths at 500px.
+
 = Will this slow down my site? =
 
 No. The widget script loads async/defer, and the actual challenge only runs when a user interacts with it. Verification is a single server-to-server POST on form submit.
 
 == Changelog ==
+
+= 2.0.0 =
+* Release-aligned package versioning for LazyCaptcha 2.0
+* Updated messaging for six challenge types and multi-step challenge flows
 
 = 0.1.0 =
 * Initial release

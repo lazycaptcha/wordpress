@@ -1,7 +1,7 @@
 (function (wp) {
     const { registerBlockType } = wp.blocks;
     const { useBlockProps, InspectorControls } = wp.blockEditor;
-    const { PanelBody, SelectControl } = wp.components;
+    const { PanelBody, SelectControl, TextControl } = wp.components;
     const { createElement: el, Fragment } = wp.element;
     const { __ } = wp.i18n;
 
@@ -48,8 +48,27 @@
                                 { label: __('Use site default', 'lazycaptcha'), value: '' },
                                 { label: __('Light', 'lazycaptcha'), value: 'light' },
                                 { label: __('Dark', 'lazycaptcha'), value: 'dark' },
+                                { label: __('Auto', 'lazycaptcha'), value: 'auto' },
                             ],
                             onChange: (value) => setAttributes({ theme: value }),
+                        }),
+                        el(SelectControl, {
+                            label: __('Widget preset', 'lazycaptcha'),
+                            value: attributes.widget,
+                            options: [
+                                { label: __('Use site default', 'lazycaptcha'), value: '' },
+                                { label: __('Standard', 'lazycaptcha'), value: 'standard' },
+                                { label: __('Compact', 'lazycaptcha'), value: 'compact' },
+                                { label: __('Newsletter', 'lazycaptcha'), value: 'newsletter' },
+                                { label: __('Login', 'lazycaptcha'), value: 'login' },
+                            ],
+                            onChange: (value) => setAttributes({ widget: value }),
+                        }),
+                        el(TextControl, {
+                            label: __('Width override', 'lazycaptcha'),
+                            help: __('Optional CSS width value, capped at 500px by the hosted widget.', 'lazycaptcha'),
+                            value: attributes.width,
+                            onChange: (value) => setAttributes({ width: value }),
                         })
                     )
                 ),

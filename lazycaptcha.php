@@ -3,7 +3,7 @@
  * Plugin Name:       LazyCaptcha
  * Plugin URI:        https://lazycaptcha.com
  * Description:       Self-hostable, privacy-friendly CAPTCHA for WordPress. Protects login, registration, comments, lost password, and WooCommerce checkout. Drop-in alternative to hCaptcha and reCAPTCHA.
- * Version:           0.1.0
+* Version:           2.0.0
  * Requires at least: 5.8
  * Requires PHP:      7.4
  * Author:            LazyCaptcha
@@ -20,7 +20,7 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-define('LAZYCAPTCHA_VERSION', '0.1.0');
+define('LAZYCAPTCHA_VERSION', '2.0.0');
 define('LAZYCAPTCHA_FILE', __FILE__);
 define('LAZYCAPTCHA_DIR', plugin_dir_path(__FILE__));
 define('LAZYCAPTCHA_URL', plugin_dir_url(__FILE__));
